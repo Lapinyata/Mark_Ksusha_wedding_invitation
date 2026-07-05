@@ -1,0 +1,1351 @@
+/* ── Variables ── */
+:root {
+  --cream: #FFF9F0;
+  --lemon: #F5D547;
+  --lemon-light: #FFF3B0;
+  --lemon-pale: #FFF8DC;
+  --olive: #8B9A6B;
+  --olive-dark: #6B7A52;
+  --blue: #4A7C9B;
+  --blue-dark: #2E5F7A;
+  --blue-light: #7BA7C4;
+  --beige: #E8DCC8;
+  --text: #3D4F5F;
+  --text-light: #6B8299;
+  --white: #FFFFFF;
+  --shadow: rgba(74, 124, 155, 0.12);
+  --radius: 20px;
+  --font-script: 'Great Vibes', cursive;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', system-ui, sans-serif;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── Background ── */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 20%, rgba(245, 213, 71, 0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 35% at 90% 60%, rgba(139, 154, 107, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 50% 90%, rgba(245, 213, 71, 0.15) 0%, transparent 70%),
+    var(--cream);
+  pointer-events: none;
+}
+
+/* ── Layout ── */
+.invitation {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding:
+    max(12px, env(safe-area-inset-top, 0px))
+    max(16px, env(safe-area-inset-right, 0px))
+    max(40px, env(safe-area-inset-bottom, 0px))
+    max(16px, env(safe-area-inset-left, 0px));
+}
+
+.section {
+  position: relative;
+  margin-bottom: 28px;
+  overflow: visible;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  box-shadow: 0 4px 24px var(--shadow), 0 1px 4px rgba(0,0,0,0.04);
+  position: relative;
+}
+
+.card--decorated {
+  overflow: hidden;
+}
+
+.card--decorated .card__content {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+/* ── Typography ── */
+.section-title {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 6vw, 2.6rem);
+  color: var(--blue);
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.text-body {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.text-body:last-child { margin-bottom: 0; }
+
+/* ── Botanical decorations (inside cards only) ── */
+.deco {
+  position: absolute;
+  pointer-events: none;
+  object-fit: contain;
+  z-index: 0;
+  filter: drop-shadow(0 1px 4px rgba(74, 124, 155, 0.1));
+}
+
+.deco--card-tl {
+  top: 6px;
+  left: 6px;
+  width: clamp(64px, 18vw, 96px);
+  max-height: 38%;
+}
+
+.deco--card-tr {
+  top: 6px;
+  right: 6px;
+  width: clamp(58px, 16vw, 88px);
+  max-height: 38%;
+}
+
+.deco--card-br {
+  bottom: 6px;
+  right: 6px;
+  width: clamp(64px, 18vw, 96px);
+  max-height: 38%;
+}
+
+.deco--card-bl {
+  bottom: 6px;
+  left: 6px;
+  width: clamp(58px, 16vw, 88px);
+  max-height: 38%;
+}
+
+.deco--garland {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-height: 72px;
+  margin: 0 auto 14px;
+  object-fit: contain;
+  z-index: 0;
+  filter: drop-shadow(0 1px 4px rgba(74, 124, 155, 0.08));
+}
+
+.deco--footer-tl {
+  top: 0;
+  left: 0;
+  width: clamp(140px, 44vw, 220px);
+  max-height: 58%;
+  object-position: left top;
+}
+
+.deco--footer-tr {
+  top: 0;
+  right: 0;
+  width: clamp(160px, 52vw, 260px);
+  max-height: 34%;
+  object-position: right top;
+}
+
+.deco--footer-br {
+  bottom: 0;
+  right: 0;
+  width: clamp(140px, 44vw, 220px);
+  max-height: 58%;
+  object-position: right bottom;
+}
+
+.deco--footer-bc {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(94%, 340px);
+  max-height: 32%;
+  object-position: center bottom;
+}
+
+.deco--after-text {
+  position: relative;
+  display: block;
+  width: min(100%, 340px);
+  margin: 0 auto;
+  transform: none;
+  max-height: none;
+}
+
+.card--welcome {
+  --welcome-garland-h: clamp(81px, 24vw, 115px);
+  padding-bottom: 0;
+}
+
+.card--welcome .deco--footer-tl {
+  top: -10px;
+  left: 80px;
+  width: clamp(81px, 25.6vw, 128px);
+  max-height: 34%;
+  transform: rotate(60deg);
+  transform-origin: left top;
+}
+
+.card--welcome .card__content {
+  padding-bottom: calc(var(--welcome-garland-h) * 0.714);
+}
+
+.card--welcome .card__content > .text-body:last-of-type {
+  margin-bottom: 0;
+}
+
+.card--welcome .deco--welcome-bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: var(--welcome-garland-h);
+  object-position: center bottom;
+}
+
+/* ── Hero ── */
+.hero {
+  padding-top: 32px;
+  text-align: center;
+}
+
+.card--hero {
+  --hero-garland-h: clamp(68px, 20vw, 92px);
+  padding: 12px 28px 36px;
+  border: 2px solid rgba(74, 124, 155, 0.12);
+}
+
+.card--hero .deco--footer-tr {
+  max-height: var(--hero-garland-h);
+}
+
+.card--hero .deco--footer-br {
+  width: clamp(79px, 22vw, 108px);
+  max-height: 29%;
+}
+
+.card--hero .card__content {
+  padding-top: var(--hero-garland-h);
+}
+
+.hero__subtitle {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+  margin-bottom: 16px;
+}
+
+.hero__names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 28px;
+}
+
+.hero__name {
+  font-family: var(--font-script);
+  font-size: clamp(2.8rem, 10vw, 3.6rem);
+  color: var(--blue);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.hero__amp {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--olive);
+  font-style: italic;
+  margin: -4px 0;
+}
+
+.hero__date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.hero__date-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero__date-label {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-light);
+}
+
+.hero__date-time,
+.hero__date-year {
+  font-family: var(--font-serif);
+  font-size: 1.38rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.hero__date-day {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 12vw, 4rem);
+  font-weight: 600;
+  color: var(--blue);
+  line-height: 1;
+}
+
+.hero__date-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--beige);
+}
+
+.hero__tagline {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ── Calendar ── */
+.card--calendar {
+  background: linear-gradient(180deg, var(--white) 0%, var(--lemon-pale) 100%);
+}
+
+.card--calendar .deco--card-tl,
+.card--calendar .deco--card-tr {
+  top: 0;
+  max-height: none;
+}
+
+.card--calendar .deco--card-tl {
+  left: 0;
+  width: clamp(70px, 19.8vw, 106px);
+  height: clamp(70px, 19.8vw, 106px);
+  object-position: left top;
+}
+
+.card--calendar .deco--card-tr {
+  right: 0;
+  width: clamp(68px, 19.4vw, 104px);
+  height: clamp(68px, 19.4vw, 104px);
+  object-position: right top;
+}
+
+.calendar__header {
+  text-align: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--beige);
+}
+
+.calendar__month {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--blue);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.calendar__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-light);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+
+.calendar__day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--text);
+  border-radius: 50%;
+  position: relative;
+}
+
+.calendar__day--empty { visibility: hidden; }
+
+.calendar__day--wedding {
+  background: var(--lemon);
+  color: var(--blue-dark);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(245, 213, 71, 0.5);
+}
+
+.calendar__day--wedding::before {
+  content: '14:30';
+  position: absolute;
+  bottom: -6px;
+  right: -22px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--blue);
+}
+
+.calendar__day--wedding::after {
+  content: '♥';
+  position: absolute;
+  top: -6px;
+  right: -2px;
+  font-size: 0.55rem;
+  color: var(--blue);
+}
+
+/* ── Countdown ── */
+.card--countdown {
+  background: linear-gradient(135deg, var(--white) 0%, rgba(139, 154, 107, 0.08) 100%);
+}
+
+.card--countdown .deco--card-tl {
+  top: -10px;
+  left: 15px;
+  width: clamp(81px, 22.4vw, 123px);
+  height: clamp(81px, 22.4vw, 123px);
+  max-height: none;
+  object-position: left top;
+  transform: rotate(10deg);
+  transform-origin: left top;
+}
+
+.card--countdown .deco--card-tr {
+  top: 0;
+  right: -16px;
+  width: clamp(81px, 22.4vw, 123px);
+  height: clamp(81px, 22.4vw, 123px);
+  max-height: none;
+  object-position: right top;
+  transform: rotate(15deg);
+  transform-origin: right top;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.countdown__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 56px;
+}
+
+.countdown__num {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 7vw, 2.4rem);
+  font-weight: 600;
+  color: var(--blue);
+  line-height: 1;
+}
+
+.countdown__label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.countdown__sep {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--olive);
+  margin-bottom: 16px;
+}
+
+.countdown-runner {
+  margin-top: 18px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 3px solid #EBE4C8;
+  box-shadow: 0 2px 10px rgba(74, 124, 155, 0.08);
+  line-height: 0;
+}
+
+.countdown-runner__canvas {
+  display: block;
+  width: 100%;
+  height: clamp(120px, 32vw, 168px);
+}
+
+/* ── Timeline ── */
+.card--timeline {
+  box-shadow: none;
+}
+
+.card--timeline .deco--card-br {
+  bottom: 0;
+  right: 0;
+  object-position: right bottom;
+}
+
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 24px;
+  bottom: 24px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--beige), var(--olive), var(--beige));
+}
+
+.timeline__item {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 28px;
+  position: relative;
+}
+
+.timeline__item--last { padding-bottom: 0; }
+
+.timeline__item--last .timeline__icon svg {
+  transform: translateY(1.5px);
+}
+
+.timeline__icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--lemon-pale);
+  border-radius: 50%;
+  color: var(--blue);
+  position: relative;
+  z-index: 1;
+}
+
+.timeline__icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.timeline__content { flex: 1; padding-top: 4px; }
+
+.timeline__time {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--blue);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.timeline__title {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.timeline__desc {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+/* ── Locations ── */
+.locations-section .deco--card-tr {
+  top: 0;
+  right: 0;
+  width: clamp(94px, 26vw, 142px);
+  max-height: 61.6%;
+  object-position: right top;
+}
+
+.locations-section .deco--card-bl {
+  bottom: 0;
+  left: 0;
+  width: clamp(53px, 14.7vw, 81px);
+  max-height: 35%;
+  object-position: left bottom;
+}
+
+.location {
+  text-align: center;
+}
+
+.location__name {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+.location__brand {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+.location__desc {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 25px;
+}
+
+.location__address {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+.location__desc .location__address--inline {
+  display: inline;
+  margin-bottom: 0;
+}
+
+.location-divider {
+  height: 1px;
+  background: var(--beige);
+  margin: 28px 0;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn--map {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.btn--map:hover {
+  background: var(--blue-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(74, 124, 155, 0.3);
+}
+
+.btn--primary {
+  background: var(--olive);
+  color: var(--white);
+  margin-top: 8px;
+}
+
+.btn--primary:hover {
+  background: var(--olive-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 154, 107, 0.35);
+}
+
+/* ── Dress Code ── */
+.stripe-bg {
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(74, 124, 155, 0.06) 0px,
+    rgba(74, 124, 155, 0.06) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  border-radius: var(--radius);
+  padding: 4px;
+}
+
+.card--dresscode {
+  box-shadow: none;
+  --dresscode-deco-h: clamp(61px, 18vw, 86px);
+  padding-bottom: 0;
+}
+
+.card--dresscode .deco--card-tl {
+  top: -4px;
+  left: -9px;
+  width: clamp(80px, 22.5vw, 120px);
+  max-height: 47.5%;
+  object-position: left top;
+}
+
+.card--dresscode .deco--card-tr {
+  top: 0;
+  right: 0;
+  object-position: right top;
+}
+
+.card--dresscode .card__content {
+  padding-bottom: calc(var(--dresscode-deco-h) * 0.714);
+}
+
+.card--dresscode .deco--dresscode-bottom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: var(--dresscode-deco-h);
+  object-position: center bottom;
+}
+
+.dresscode__hint {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-light);
+  margin: 20px 0 16px;
+}
+
+.color-palette {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.color-palette__row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.color-swatch {
+  display: block;
+}
+
+.color-swatch::before {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--swatch);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ── Wishes ── */
+.wishes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.wish {
+  text-align: center;
+}
+
+.wish__icon {
+  margin-bottom: 12px;
+}
+
+.wish__icon img {
+  width: 64px;
+  height: auto;
+  object-fit: contain;
+}
+
+.wishes-section .section-title {
+  margin-bottom: 0;
+}
+
+.wishes-section .deco--card-tl {
+  top: 0;
+  left: 0;
+  width: clamp(74px, 21vw, 110px);
+  max-height: 43.7%;
+  object-position: left top;
+}
+
+.wishes-section .deco--card-tr {
+  top: 0;
+  right: 0;
+  width: clamp(67px, 18.4vw, 101px);
+  max-height: 43.7%;
+  object-position: right top;
+}
+
+.wishes-section .deco--card-bl {
+  bottom: 0;
+  left: 0;
+  width: clamp(41px, 11.2vw, 62px);
+  max-height: 26.6%;
+  object-position: left bottom;
+}
+
+.wishes-highlight {
+  display: grid;
+  place-items: center;
+  margin: 0 -28px 0;
+  padding: 8px 28px 2px;
+}
+
+.wishes-highlight__frame {
+  grid-area: 1 / 1;
+  width: 125%;
+  height: 100%;
+  min-height: 76px;
+  justify-self: center;
+  pointer-events: none;
+}
+
+.wishes-highlight__oval {
+  fill: none;
+  stroke: var(--text-light);
+  stroke-width: 1.25;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: geometricPrecision;
+}
+
+.wishes-highlight__text {
+  grid-area: 1 / 1;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 6px 0;
+  max-width: 68%;
+  text-align: center;
+}
+
+.wishes-age {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1.5px solid #D32F2F;
+  background: var(--white);
+  color: #C62828;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  vertical-align: middle;
+  margin-right: 0.45em;
+  flex-shrink: 0;
+}
+
+/* ── RSVP ── */
+.card--rsvp {
+  background: linear-gradient(180deg, var(--white), var(--lemon-pale));
+  text-align: center;
+}
+
+.card--rsvp .deco--card-tl {
+  top: 0;
+  left: -10px;
+  width: clamp(70px, 20vw, 105px);
+  max-height: 41.8%;
+  object-position: left top;
+  transform: rotate(-15deg);
+  transform-origin: left top;
+}
+
+.card--rsvp .deco--card-tr {
+  top: -20px;
+  right: 45px;
+  width: clamp(83px, 23vw, 126px);
+  max-height: 54.3%;
+  object-position: right top;
+  transform: rotate(-25deg);
+  transform-origin: right top;
+}
+
+/* ── Footer ── */
+.footer {
+  padding: 0;
+}
+
+.card--footer {
+  text-align: center;
+}
+
+.card--footer .card__content {
+  padding: 28px 24px;
+}
+
+.card--footer .footer__date {
+  margin-bottom: 0;
+}
+
+.footer__text {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.footer__names {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+  margin-bottom: 8px;
+}
+
+.footer__name {
+  font-family: var(--font-script);
+  font-size: 2.4rem;
+  color: var(--blue);
+  line-height: 1.1;
+}
+
+.footer__amp {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--olive);
+  font-style: italic;
+  margin: -4px 0;
+}
+
+.footer__date {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  color: var(--olive);
+  margin-bottom: 24px;
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.section {
+  animation: fadeUp 0.7s ease both;
+}
+
+.section:nth-child(2) { animation-delay: 0.05s; }
+.section:nth-child(3) { animation-delay: 0.1s; }
+.section:nth-child(4) { animation-delay: 0.15s; }
+.section:nth-child(5) { animation-delay: 0.2s; }
+.section:nth-child(6) { animation-delay: 0.25s; }
+.section:nth-child(7) { animation-delay: 0.3s; }
+.section:nth-child(8) { animation-delay: 0.35s; }
+.section:nth-child(9) { animation-delay: 0.4s; }
+
+/* ── Responsive ── */
+
+/* Телефоны */
+@media (max-width: 480px) {
+  .invitation {
+    padding-left: max(12px, env(safe-area-inset-left, 0px));
+    padding-right: max(12px, env(safe-area-inset-right, 0px));
+  }
+
+  .section {
+    margin-bottom: 22px;
+  }
+
+  .card {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .card--hero {
+    padding: 10px 16px 28px;
+  }
+
+  .hero {
+    padding-top: 20px;
+  }
+
+  .hero__subtitle {
+    font-size: clamp(0.68rem, 3.2vw, 0.75rem);
+    letter-spacing: clamp(0.18em, 1.2vw, 0.28em);
+  }
+
+  .hero__date {
+    gap: 8px;
+  }
+
+  .hero__date-divider {
+    height: 40px;
+  }
+
+  .hero__date-time,
+  .hero__date-year {
+    font-size: 1.15rem;
+  }
+
+  .countdown {
+    gap: 2px;
+  }
+
+  .countdown__item {
+    min-width: 44px;
+  }
+
+  .countdown__label {
+    font-size: 0.58rem;
+  }
+
+  .countdown__sep {
+    font-size: 1.35rem;
+    margin-bottom: 14px;
+  }
+
+  .timeline__item {
+    gap: 12px;
+    padding-bottom: 22px;
+  }
+
+  .timeline::before {
+    left: 19px;
+  }
+
+  .timeline__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .timeline__icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .timeline__time {
+    font-size: 1.15rem;
+  }
+
+  .color-palette__row {
+    gap: 10px;
+  }
+
+  .color-swatch::before {
+    width: 36px;
+    height: 36px;
+  }
+
+  .wishes-highlight {
+    margin: 0 -18px 0;
+    padding: 8px 18px 2px;
+  }
+
+  .wishes-highlight__text {
+    max-width: 82%;
+    font-size: 0.85rem;
+  }
+
+  .wishes-highlight__frame {
+    width: 130%;
+  }
+
+  .calendar__day {
+    font-size: 0.78rem;
+  }
+
+  .calendar__day--wedding::before {
+    font-size: 0.72rem;
+    right: -12px;
+    bottom: -4px;
+  }
+
+  .location__brand {
+    white-space: normal;
+  }
+
+  .text-body {
+    font-size: 0.875rem;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 14px 22px;
+    font-size: 0.7rem;
+  }
+
+  .card--welcome .deco--footer-tl {
+    left: 48px;
+    width: clamp(64px, 22vw, 96px);
+  }
+
+  .card--countdown .deco--card-tr {
+    right: -8px;
+    width: clamp(68px, 20vw, 96px);
+    height: clamp(68px, 20vw, 96px);
+  }
+
+  .card--countdown .deco--card-tl {
+    left: 8px;
+    width: clamp(68px, 20vw, 96px);
+    height: clamp(68px, 20vw, 96px);
+  }
+
+  .locations-section .deco--card-tr {
+    width: clamp(78px, 22vw, 110px);
+  }
+
+  .card--rsvp .deco--card-tr {
+    right: 16px;
+    top: -12px;
+    width: clamp(68px, 20vw, 96px);
+  }
+
+  .card--rsvp .deco--card-tl {
+    left: -6px;
+    width: clamp(58px, 17vw, 88px);
+  }
+
+  .card--dresscode .deco--card-tl {
+    width: clamp(68px, 20vw, 96px);
+    left: -6px;
+  }
+
+  .wishes-section .deco--card-tl {
+    width: clamp(62px, 18vw, 92px);
+  }
+
+  .wishes-section .deco--card-tr {
+    width: clamp(58px, 16vw, 84px);
+  }
+
+  .footer__name {
+    font-size: clamp(1.9rem, 9vw, 2.4rem);
+  }
+
+  .footer__amp {
+    font-size: 1.35rem;
+  }
+
+  .card--footer .card__content {
+    padding: 22px 16px;
+  }
+}
+
+/* Очень узкие экраны */
+@media (max-width: 360px) {
+  .card {
+    padding: 22px 14px;
+  }
+
+  .countdown__item {
+    min-width: 40px;
+  }
+
+  .countdown__num {
+    font-size: 1.55rem;
+  }
+
+  .calendar__day--wedding::before {
+    font-size: 0.65rem;
+    right: -10px;
+  }
+}
+
+/* Планшеты и ноутбуки — карточка по центру, как сейчас */
+@media (min-width: 481px) {
+  .invitation {
+    padding:
+      max(16px, env(safe-area-inset-top, 0px))
+      max(24px, env(safe-area-inset-right, 0px))
+      max(60px, env(safe-area-inset-bottom, 0px))
+      max(24px, env(safe-area-inset-left, 0px));
+  }
+
+  .card {
+    padding: 36px 36px;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    background:
+      radial-gradient(ellipse 50% 40% at 15% 15%, rgba(245, 213, 71, 0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 45% 35% at 85% 75%, rgba(139, 154, 107, 0.1) 0%, transparent 70%),
+      var(--cream);
+  }
+
+  .invitation {
+    max-width: 480px;
+    padding-top: max(24px, env(safe-area-inset-top, 0px));
+  }
+}
+
+/* Скрытые переносы */
+.br--sm-only,
+.br--pro-max-only {
+  display: none;
+}
+
+/* iPhone 14 Pro Max (391–430px) */
+@media (min-width: 391px) and (max-width: 430px) {
+  .br--pro-max-only {
+    display: block;
+  }
+
+  .card--welcome .deco--footer-tl {
+    transform: rotate(60deg) scale(0.774);
+  }
+
+  .card--dresscode .deco--card-tl {
+    transform: scale(0.94);
+    transform-origin: left top;
+  }
+
+  .card--rsvp .deco--card-tr {
+    right: 36px;
+  }
+
+  .wishes-section .deco--card-tl {
+    transform: scale(1.03);
+    transform-origin: left top;
+  }
+
+  .wishes-section .deco--card-tr {
+    transform: scale(1.08);
+    transform-origin: right top;
+  }
+}
+
+/* iPhone XR (414×896) */
+@media (min-width: 412px) and (max-width: 414px) {
+  .locations-section .deco--card-bl {
+    transform: scale(0.88);
+    transform-origin: left bottom;
+  }
+
+  .locations-section .deco--card-tr {
+    transform: scale(1.08);
+    transform-origin: right top;
+  }
+
+  .card--dresscode .deco--card-tl {
+    transform: scale(1.1);
+    transform-origin: left top;
+  }
+
+  .wishes-section .deco--card-bl {
+    transform: scale(0.92);
+    transform-origin: left bottom;
+  }
+}
+
+/* iPhone 12 Pro и уже (≤390px) */
+@media (max-width: 390px) {
+  .card--dresscode .deco--card-tl {
+    transform: scale(1.05);
+    transform-origin: left top;
+  }
+
+  .card--dresscode .card__content {
+    padding-bottom: calc(var(--dresscode-deco-h) * 0.714 + 15px);
+  }
+
+  .card--rsvp .deco--card-tr {
+    right: 36px;
+  }
+
+  .locations-section .deco--card-tr {
+    transform: scale(1.1);
+    transform-origin: right top;
+  }
+
+  .locations-section .deco--card-bl {
+    bottom: auto;
+    top: 0;
+    left: 0;
+    object-position: left top;
+  }
+
+  .wishes-section .deco--card-tl {
+    transform: scale(1.05);
+    transform-origin: left top;
+  }
+
+  .wishes-section .deco--card-tr {
+    transform: scale(1.08);
+    transform-origin: right top;
+  }
+
+  .br--sm-only {
+    display: block;
+  }
+}
+
+/* iPhone SE (375×667) */
+@media (max-width: 375px) {
+  .wishes-section .deco--card-bl {
+    transform: scale(0.88);
+    transform-origin: left bottom;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section { animation: none; }
+  html { scroll-behavior: auto; }
+}

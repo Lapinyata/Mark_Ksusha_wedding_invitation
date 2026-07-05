@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Марк & Ксения — 06.09.2026</title>
+  <meta name="description" content="Приглашение на свадьбу Марка и Ксении — 6 сентября 2026">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="page-bg"></div>
+
+  <main class="invitation">
+
+    <!-- HERO -->
+    <section class="section hero" id="hero">
+      <div class="card card--hero card--decorated">
+        <img class="deco deco--footer-tl" src="photos/deco/sheet1-auto02.png" alt="" aria-hidden="true">
+        <img class="deco deco--footer-tr" src="photos/deco/sheet1-auto01.png" alt="" aria-hidden="true">
+        <img class="deco deco--footer-br" src="photos/deco/sheet1-auto09.png" alt="" aria-hidden="true">
+        <div class="card__content">
+          <p class="hero__subtitle">«La Dolce Vita»</p>
+          <h1 class="hero__names">
+            <span class="hero__name">Марк</span>
+            <span class="hero__amp">&</span>
+            <span class="hero__name">Ксения</span>
+          </h1>
+          <div class="hero__date">
+            <div class="hero__date-part">
+              <span class="hero__date-label">воскресенье</span>
+              <span class="hero__date-time">15:00</span>
+            </div>
+            <div class="hero__date-divider"></div>
+            <div class="hero__date-day">06</div>
+            <div class="hero__date-divider"></div>
+            <div class="hero__date-part">
+              <span class="hero__date-label">сентябрь</span>
+              <span class="hero__date-year">2026</span>
+            </div>
+          </div>
+          <p class="hero__tagline">приглашаем вас разделить с нами<br>самый счастливый день</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WELCOME -->
+    <section class="section welcome">
+      <div class="card card--welcome card--decorated">
+        <img class="deco deco--footer-tl" src="photos/deco/sheet2-auto07-mirror.png" alt="" aria-hidden="true">
+        <div class="card__content">
+          <h2 class="section-title">Дорогие гости!</h2>
+          <p class="text-body">
+            Один день в этом году будет для нас особенным, и мы хотели провести его
+            в&nbsp;окружении близких и друзей — будем счастливы видеть вас среди гостей.
+          </p>
+          <p class="text-body">
+            С огромной радостью приглашаем вас стать частью нашей свадьбы.
+            При себе иметь хорошее настроение и желание веселиться!
+            Ждём вас с нетерпением!
+          </p>
+        </div>
+        <img class="deco deco--welcome-bottom" src="photos/deco/sheet1-auto13.png" alt="" aria-hidden="true">
+      </div>
+    </section>
+
+    <!-- CALENDAR -->
+    <section class="section calendar-section">
+      <div class="card card--calendar card--decorated">
+        <img class="deco deco--card-tl" src="photos/deco/sheet1-auto06-mirror.png" alt="" aria-hidden="true">
+        <img class="deco deco--card-tr" src="photos/deco/sheet2-auto03.png" alt="" aria-hidden="true">
+        <div class="card__content">
+          <h2 class="section-title">Сохраните дату</h2>
+          <div class="calendar">
+            <div class="calendar__header">
+              <span class="calendar__month">Сентябрь 2026</span>
+            </div>
+            <div class="calendar__weekdays">
+              <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span>
+              <span>Пт</span><span>Сб</span><span>Вс</span>
+            </div>
+            <div class="calendar__days" id="calendar-days"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="section countdown-section">
+      <div class="card card--countdown card--decorated">
+        <img class="deco deco--card-tl" src="photos/deco/sheet2-auto08-mirror.png" alt="" aria-hidden="true">
+        <img class="deco deco--card-tr" src="photos/deco/sheet1-auto04.png" alt="" aria-hidden="true">
+        <div class="card__content">
+          <h2 class="section-title">До нашей встречи</h2>
+          <div class="countdown" id="countdown">
+            <div class="countdown__item">
+              <span class="countdown__num" id="cd-days">—</span>
+              <span class="countdown__label">дней</span>
+            </div>
+            <div class="countdown__sep">:</div>
+            <div class="countdown__item">
+              <span class="countdown__num" id="cd-hours">—</span>
+              <span class="countdown__label">часов</span>
+            </div>
+            <div class="countdown__sep">:</div>
+            <div class="countdown__item">
+              <span class="countdown__num" id="cd-mins">—</span>
+              <span class="countdown__label">минут</span>
+            </div>
+            <div class="countdown__sep">:</div>
+            <div class="countdown__item">
+              <span class="countdown__num" id="cd-secs">—</span>
+              <span class="countdown__label">секунд</span>
+            </div>
+          </div>
+          <div class="countdown-runner" aria-hidden="true">
+            <canvas id="countdown-runner" class="countdown-runner__canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section timeline-section">
+      <div class="card card--timeline card--decorated">
+        <img class="deco deco--card-tl" src="photos/deco/sheet2-auto06.png" alt="" aria-hidden="true">
+        <img class="deco deco--card-tr" src="photos/deco/sheet1-auto06.png" alt="" aria-hidden="true">
+        <img class="deco deco--card-br" src="photos/deco/sheet2-auto05.png" alt="" aria-hidden="true">
+        <div class="card__content">
+          <h2 class="section-title">Тайминг дня</h2>
+          <ul class="timeline">
+            <li class="timeline__item">
+              <div class="timeline__icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="16" cy="20" r="6"/><circle cx="32" cy="20" r="6"/>
+                  <path d="M10 32c2-4 6-6 14-6s12 2 14 6"/>
+                </svg>
+              </div>
+              <div class="timeline__content">
+                <time class="timeline__time">14:30</time>
+                <p class="timeline__title">Сбор гостей</p>
+                <p class="timeline__desc">Встречаемся, приветствуем друг друга<br>и наслаждаемся аперитивом</p>
+              </div>
+            </li>
+            <li class="timeline__item">
+              <div class="timeline__icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="24" cy="24" r="10"/>
+                  <circle cx="24" cy="24" r="5"/>
+                  <circle cx="18" cy="18" r="4"/><circle cx="30" cy="30" r="4"/>
+                </svg>
+              </div>
+              <div class="timeline__content">
+                <time class="timeline__time">16:00</time>
+                <p class="timeline__title">Церемония</p>
+                <p class="timeline__desc">Торжественная регистрация брака</p>
+              </div>
+            </li>
+            <li class="timeline__item">
+              <div class="timeline__icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M24 10v5"/>
+                  <circle cx="24" cy="9" r="1"/>
+                  <path d="M19 15h10v6H19z"/>
+                  <path d="M16 23h16v6H16z"/>
+                  <path d="M13 31h22v5H13z"/>
+                  <path d="M11 38h26"/>
+                </svg>
+              </div>
+              <div class="timeline__content">
+                <time class="timeline__time">17:00</time>
+                <p class="timeline__title">Банкет</p>
+                <p class="timeline__desc">Ужин, веселье, танцы и торт</p>
+              </div>
+            </li>
+            <li class="timeline__item timeline__item--last">
+              <div class="timeline__icon">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="24" cy="18" r="2"/>
+                  <path d="M24 8v6M24 28v6"/>
+                  <path d="M14 18h6M28 18h6"/>
+                  <path d="M16.2 10.2l4.2 4.2M27.6 21.6l4.2 4.2"/>
+                  <path d="M31.8 10.2l-4.2 4.2M20.4 21.6l-4.2 4.2"/>
+                  <circle cx="14" cy="34" r="1.5"/>
+                  <circle cx="34" cy="32" r="1.5"/>
+                  <circle cx="36" cy="14" r="1"/>
+                </svg>
+              </div>
+              <div class="timeline__content">
+                <time class="timeline__time">23:00</time>
+                <p class="timeline__title">Завершение</p>
+                <p class="timeline__desc">Торжественная кульминация</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATIONS -->
+    <section class="section locations-section">
+      <div class="card card--decorated">
+        <img class="deco deco--card-tr" src="photos/deco/sheet2-auto02-mirror.png" alt="" aria-hidden="true">
+        <img class="deco deco--card-bl" src="photos/deco/sheet1-auto14.png" alt="" aria-hidden="true">
+        <div class="card__content">
+          <h2 class="section-title">Локация</h2>
+
+          <div class="location">
+            <p class="location__desc">
+              Церемония и банкет пройдут на площадке
+              <span class="location__brand">KOKO&nbsp;LOFT</span> по адресу:<br class="br--sm-only">
+              <span class="location__address location__address--inline">«Рублево-Успенское шоссе, Борки 19»</span>
+            </p>
+            <a href="https://yandex.ru/maps/org/koko_loft/232007158534/" target="_blank" rel="noopener" class="btn btn--map">
+              Посмотреть на карте
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRESS CODE -->
+    <section class="section dresscode-section">
+      <div class="card card--dresscode card--decorated">
+          <img class="deco deco--card-tl" src="photos/deco/sheet2-auto11-rotated.png" alt="" aria-hidden="true">
+          <img class="deco deco--card-tr" src="photos/deco/sheet2-auto07-mirror.png" alt="" aria-hidden="true">
+          <div class="card__content">
+            <h2 class="section-title">Дресс-код</h2>
+            <p class="text-body">
+              Мы будем рады, если вы поддержите цветовую палитру нашего праздника.
+              Просим&nbsp;избегать полностью белых нарядов, ярких&nbsp;цветов и принтов
+            </p>
+            <p class="dresscode__hint">Рекомендуемые цвета:</p>
+            <div class="color-palette">
+              <div class="color-palette__row">
+                <div class="color-swatch" style="--swatch: #FFF4B8" aria-hidden="true"></div>
+                <div class="color-swatch" style="--swatch: #f9d69a" aria-hidden="true"></div>
+                <div class="color-swatch" style="--swatch: #C19A6B" aria-hidden="true"></div>
+                <div class="color-swatch" style="--swatch: #6B4C3B" aria-hidden="true"></div>
+                <div class="color-swatch" style="--swatch: #1A1A1A" aria-hidden="true"></div>
+              </div>
+              <div class="color-palette__row">
+                <div class="color-swatch" style="--swatch: #E8B4B8" aria-hidden="true"></div>
+                <div class="color-swatch" style="--swatch: #c8a2c8" aria-hidden="true"></div>
+                <div class="color-swatch" style="--swatch: #aed1ff" aria-hidden="true"></div>
+                <div class="color-swatch" style="--swatch: #4A7C9B" aria-hidden="true"></div>
+                <div class="color-swatch" style="--swatch: #8B9A6B" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <img class="deco deco--dresscode-bottom" src="photos/deco/sheet1-auto03-rotated.png" alt="" aria-hidden="true">
+      </div>
+    </section>
+
+    <!-- WISHES -->
+    <section class="section wishes-section">
+      <div class="card card--decorated">
+        <img class="deco deco--card-tl" src="photos/deco/sheet2-auto04.png" alt="" aria-hidden="true">
+        <img class="deco deco--card-tr" src="photos/deco/sheet1-auto10.png" alt="" aria-hidden="true">
+        <img class="deco deco--card-bl" src="photos/deco/sheet2-auto08.png" alt="" aria-hidden="true">
+        <div class="card__content">
+          <h2 class="section-title">Пожелания</h2>
+          <div class="wishes-highlight">
+            <svg class="wishes-highlight__frame" viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true">
+              <ellipse class="wishes-highlight__oval" cx="200" cy="50" rx="213.4" ry="38"/>
+            </svg>
+            <p class="text-body wishes-highlight__text">
+              Просим не обременять себя<br class="br--sm-only">
+              выбором цветов, сервизов<br class="br--sm-only">
+              и&nbsp;постельного белья
+            </p>
+          </div>
+          <p class="text-body">
+            Если вы хотите нас порадовать, мы будем благодарны за денежный вклад в нашу семейную копилку —
+            это точно поможет воплотить наши мечты в реальность!
+          </p>
+          <p class="text-body">
+            <span class="wishes-age">18+</span> Примите во внимание, что площадка не&nbsp;позволяет организовать досуг для детей и обеспечить
+            безопасное пространство для&nbsp;них. Мы хотим, чтобы каждый смог насладиться этим&nbsp;днём.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section rsvp-section">
+      <div class="card card--rsvp card--decorated">
+        <img class="deco deco--card-tl" src="photos/deco/sheet1-auto04.png" alt="" aria-hidden="true">
+        <img class="deco deco--card-tr" src="photos/deco/sheet1-auto08.png" alt="" aria-hidden="true">
+        <div class="card__content">
+          <h2 class="section-title">Подтвердите<br class="br--pro-max-only br--sm-only"> присутствие</h2>
+          <p class="text-body">
+            Пожалуйста, сообщите нам о своём решении до
+            <strong>1 августа 2026</strong> — это поможет нам
+            подготовить всё идеально.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="card card--footer card--decorated">
+        <img class="deco deco--footer-tl" src="photos/deco/sheet2-auto01-mirror.png" alt="" aria-hidden="true">
+        <img class="deco deco--footer-br" src="photos/deco/sheet2-auto09.png" alt="" aria-hidden="true">
+        <div class="card__content">
+          <p class="footer__text">С любовью,</p>
+          <p class="footer__names">
+            <span class="footer__name">Марк</span>
+            <span class="footer__amp">&</span>
+            <span class="footer__name">Ксения</span>
+          </p>
+          <p class="footer__date">06 · 09 · 2026</p>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="runner.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
