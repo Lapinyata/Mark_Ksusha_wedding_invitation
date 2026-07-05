@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <defs>
+    <radialGradient id="lemon" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FFF6A8"/>
+      <stop offset="100%" stop-color="#F5D547"/>
+    </radialGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#C5D4A0"/>
+      <stop offset="100%" stop-color="#8B9A6B"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="40" cy="64" rx="16" ry="5" fill="#8B9A6B" opacity="0.2"/>
+  <path d="M30 18 L30 50 Q30 60 40 60 Q50 60 50 50 L50 18 Z" fill="#F5EDE8" stroke="#C4A882" stroke-width="1"/>
+  <path d="M32 20 L32 48 Q32 56 40 56 Q48 56 48 48 L48 20 Z" fill="#7A2038" opacity="0.75"/>
+  <rect x="35" y="12" width="10" height="8" rx="1" fill="#C4A882"/>
+  <ellipse cx="60" cy="56" rx="14" ry="13" fill="url(#lemon)" transform="rotate(15 60 56)"/>
+  <ellipse cx="64" cy="48" rx="12" ry="5" fill="url(#leaf)" transform="rotate(-30 64 48)"/>
+</svg>
